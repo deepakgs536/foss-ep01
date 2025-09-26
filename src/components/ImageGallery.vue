@@ -40,18 +40,18 @@
     <transition name="fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" @keydown.esc.window="closeLightbox">
         <button class="absolute right-4 top-4 rounded-full bg-white/90 p-2 text-slate-700 shadow ring-1 ring-slate-200 hover:bg-white" aria-label="Close" @click="closeLightbox">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
         </button>
         <button class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-slate-700 shadow ring-1 ring-slate-200 hover:bg-white" aria-label="Previous" @click="prev">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M15 6l-6 6 6 6"/></svg>
         </button>
-        <figure class="max-h-[90vh] w-full max-w-5xl">
-          <img :src="current?.src" :alt="current?.alt" class="mx-auto max-h-[80vh] w-auto rounded-xl object-contain shadow-2xl" />
+        <figure class="max-h-[90vh] w-full max-w-5xl" @click="">
+          <img :src="current?.src" :alt="current?.alt" class="mx-auto h-[80vh] w-[80vw] rounded-xl object-fill shadow-2xl" />
           <figcaption class="mt-4 text-center text-sm text-slate-200">
             <div class="font-medium">{{ current?.title }}</div>
-            <div class="mt-1 flex flex-wrap justify-center gap-2">
-              <span v-for="t in current?.tags || []" :key="tKey(t)" class="rounded-md bg-white/15 px-2 py-0.5 text-[11px] font-medium text-white ring-1 ring-white/20">{{ t }}</span>
-            </div>
           </figcaption>
         </figure>
         <button class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-slate-700 shadow ring-1 ring-slate-200 hover:bg-white" aria-label="Next" @click="next">

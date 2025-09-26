@@ -3,12 +3,12 @@
     <img
       :src="image.src"
       :alt="image.alt"
-      class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-56 md:h-64"
+      class="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-56 md:h-64 group-hover:cursor-pointer"
       loading="lazy"
       @click="onClick"
     />
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-    <div class="absolute inset-x-0 bottom-0 flex translate-y-3 items-end justify-between p-3 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+    <div class="absolute inset-x-0 bottom-0 flex translate-y-3 items-end justify-between p-3 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 group-hover:cursor-pointer">
       <div class="max-w-[75%]">
         <h3 class="truncate text-sm font-semibold text-white drop-shadow">{{ image.title }}</h3>
         <div class="mt-1 flex flex-wrap gap-1">
@@ -19,14 +19,6 @@
           >{{ t }}</span>
         </div>
       </div>
-      <button
-        class="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow ring-1 ring-slate-200 transition hover:bg-white"
-        aria-label="Open image"
-        @click.stop="onClick"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
-          <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14"/><path d="M7 14l3-3 2 2 3-3 4 4"/><path d="M21 19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2"/></svg>
-      </button>
     </div>
   </div>
 </template>
